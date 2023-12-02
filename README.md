@@ -1,2 +1,2 @@
 # aoc
-let's try this out
+Trying to learn some C++ uwu
