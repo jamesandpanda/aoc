@@ -4,10 +4,6 @@
 
 using namespace std;
 
-#define MAX_RED 12
-#define MAX_GREEN 13
-#define MAX_BLUE 14
-
 int count(string line, string token);
 
 int main(void) {
