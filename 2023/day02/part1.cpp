@@ -24,10 +24,8 @@ int main(void) {
             int first = line[ID_DIGIT_1_POS] - '0';
             if (line[ID_DIGIT_2_POS] == ':') {
                 sum += first;
-                cout << first << "\n";
             } else {
                 sum += first * 10 + (line[ID_DIGIT_2_POS] - '0');
-                cout << first * 10 + (line[ID_DIGIT_2_POS] - '0') << "\n";
             }
         }
     }
