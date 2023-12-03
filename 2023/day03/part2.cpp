@@ -9,11 +9,6 @@ using namespace std;
 #define MAX_LEN 140
 #define INPUT_FILE_NAME "input.txt"
 
-typedef struct Gear {
-    int id;
-    vector<int> nums;
-} Gear;
-
 typedef struct Coordinate {
     int i;
     int j;
@@ -27,17 +22,10 @@ bool isGear(char c);
 
 int main(void) {
     int sum = 0;
+    vector<int> gears[MAX_LEN][MAX_LEN];
     vector<string> lines;
     if (!readFile(lines)) {
         return EXIT_FAILURE;
-    }
-
-    int numGears = 0;
-    Gear gears[MAX_LEN][MAX_LEN];
-    for (int i = 0; i < MAX_LEN; i++) {
-        for (int j = 0; j < MAX_LEN; j++) {
-            gears[i][j].id = (lines[i][j] == '*') ? numGears++ : -1;
-        }
     }
 
     for (int i = 0; i < MAX_LEN; i++) {
@@ -58,15 +46,15 @@ int main(void) {
 
             if (ret.i != -1) {
                 j--;
-                gears[ret.i][ret.j].nums.push_back(currNum);
+                gears[ret.i][ret.j].push_back(currNum);
             }
         }
     }
 
     for (int i = 0; i < MAX_LEN; i++) {
         for (int j = 0; j < MAX_LEN; j++) {
-            if (gears[i][j].nums.size() == 2) {
-                sum += gears[i][j].nums[0] * gears[i][j].nums[1];
+            if (gears[i][j].size() == 2) {
+                sum += gears[i][j][0] * gears[i][j][1];
             }
         }
     }
